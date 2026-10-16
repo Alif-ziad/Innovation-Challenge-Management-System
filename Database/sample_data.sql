@@ -1,3 +1,5 @@
+-- Sample/coursework data for the ICMS schema. Do not use as production data.
+
 --1. CHALLENGE DATA (5 rows)
 INSERT INTO Challenge (challenge_id, title, theme, start_date, end_date, status) VALUES (seq_challenge.NEXTVAL, 'Green Energy Hack', 'Sustainability', TO_DATE('2026-01-10', 'YYYY-MM-DD'), TO_DATE('2026-06-10', 'YYYY-MM-DD'), 'Open');
 INSERT INTO Challenge (challenge_id, title, theme, start_date, end_date, status) VALUES (seq_challenge.NEXTVAL, 'AI for Good', 'Artificial Intelligence', TO_DATE('2025-03-01', 'YYYY-MM-DD'), TO_DATE('2025-08-01', 'YYYY-MM-DD'), 'Closed');
@@ -96,7 +98,7 @@ SELECT * FROM Judge ORDER BY participant_id;
  
 
 --10. MENTOR DATA (5 rows) — Uses ParticipantID from seq_participant
-(Mentors already exist as Participants)
+-- Mentors already exist as Participants.
 INSERT INTO Mentor VALUES (11, 'Hardware Engineering');
 INSERT INTO Mentor VALUES (12, 'Product Strategy');
 INSERT INTO Mentor VALUES (13, 'Software Development');

@@ -1,217 +1,134 @@
 # Innovation Challenge Management System (ICMS)
 
-A database-driven system designed to manage innovation competitions and hackathons from participant registration to project evaluation, mentorship, and prize distribution.
+Academic **Oracle SQL / PL/SQL database project** for managing innovation competitions and hackathons, including challenges, rounds, teams, submissions, judging, mentorship, sponsors, prizes, and results.
 
-## Tech Stack
+> This repository is a fork of the original group-project repository: [Samiha-Chowdhury-9/Innovation-Challenge-Management-System](https://github.com/Samiha-Chowdhury-9/Innovation-Challenge-Management-System). The fork preserves the original academic work and attribution while improving repository presentation and small script-hygiene issues.
 
-<p align="left">
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg" width="45" height="45" alt="Oracle SQL"/>
-  &nbsp;
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" width="45" height="45" alt="PHP"/>
-  &nbsp;
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" width="45" height="45" alt="HTML5"/>
-  &nbsp;
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" width="45" height="45" alt="JavaScript"/>
-</p>
+## What is implemented
 
-**Oracle SQL • PL/SQL • PHP • HTML5 • JavaScript**
+The public repository focuses on the **database layer**. It contains:
 
-## Overview
+- a 16-table relational schema with primary, foreign, composite, unique, and check constraints
+- Oracle sequences for generated identifiers
+- sample data covering challenges, participants, teams, rounds, submissions, judging, mentorship, sponsors, and prizes
+- SQL joins, subqueries, aggregate queries, locking examples, and data-manipulation examples
+- PL/SQL functions, procedures, loops, conditionals, explicit cursors, records, triggers, packages, and exception handling
+- ER, schema, class, use-case, and activity diagrams
+- UI screenshots illustrating the intended system workflows
+- written documentation covering the proposal, scenario, normalization, introduction, conclusion, and future work
 
-The **Innovation Challenge Management System (ICMS)** is designed to manage innovation competitions and hackathons in a structured database environment.
+The repository does **not** currently include the PHP/HTML/JavaScript source for the UI shown in the screenshots, so the published implementation should be treated primarily as an Oracle database/PLSQL project.
 
-The system manages the complete competition workflow, including challenge creation, team registration, project submissions, judging, mentorship, sponsors, prizes, and results.
+## Main data model
 
-## Features
+The schema covers:
 
-- Challenge creation and management
-- Multiple challenge rounds
-- Participant registration
-- Team creation and membership management
-- Project submission management
-- Submission tagging
-- Judge assignment and evaluation
-- Evaluation criteria and scoring
-- Mentor and mentorship session management
-- Sponsor management
-- Prize and winner management
-- Competition progress tracking
-- Database locking and transaction handling
+- **Challenge** and **Round**
+- **Participant**, **ParticipantPhone**, **Judge**, and **Mentor**
+- **Team** and **TeamParticipant**
+- **Submission**, **Tag**, and **SubmissionTag**
+- **Criteria** and **Evaluation**
+- **MentorshipSession**
+- **Sponsor** and **Prize**
 
-## Database Design
+The design is documented as normalized through **Third Normal Form (3NF)**.
 
-The database was designed using relational database principles and normalized up to **Third Normal Form (3NF)**.
-
-### Main Entities
-
-- Challenge
-- Round
-- Participant
-- Participant Phone
-- Team
-- Team Participant
-- Submission
-- Tag
-- Submission Tag
-- Criteria
-- Judge
-- Mentor
-- Evaluation
-- Mentorship Session
-- Sponsor
-- Prize
-
-## Database Implementation
-
-The database was implemented using **Oracle SQL and PL/SQL**.
-
-Concepts implemented include:
-
-- Primary Keys
-- Foreign Keys
-- Composite Keys
-- NOT NULL constraints
-- UNIQUE constraints
-- CHECK constraints
-- Sequences
-- Joins
-- Subqueries
-- Single-row functions
-- Group functions
-- PL/SQL variables
-- Operators
-- Loops
-- Conditional statements
-- Explicit cursors
-- Stored procedures
-- Stored functions
-- Triggers
-- Packages
-- Implicit locking
-- Explicit locking
-
-## Project Structure
+## Repository structure
 
 ```text
-innovation-challenge-management-system/
-│
-├── database/
+.
+├── Database/
 │   ├── schema.sql
 │   ├── sequences.sql
 │   ├── sample_data.sql
 │   ├── plsql_basic.sql
 │   ├── plsql_advanced.sql
 │   └── locking_queries.sql
-│
-├── diagrams/
+├── Diagrams/
 │   ├── er-diagram.png
-│   ├── schema-diagram.png
+│   ├── Schema-diagram.png
 │   ├── class-diagram.png
 │   ├── use-case-diagram.jpg
 │   └── activity-diagram.jpg
-│
-├── screenshots/
+├── Documentaion/
+│   ├── project-proposal.md
+│   ├── scenario-description.md
+│   ├── normalization.md
+│   └── introduction-conclusion.md
+├── Screenshots of UI/
 │   ├── login.png
+│   ├── registration.png
 │   ├── organizer-dashboard.png
 │   ├── participant-dashboard.png
 │   ├── judge-dashboard.png
 │   └── mentor-dashboard.png
-│
-├── docs/
-│   └── ICMS_Project_Report.pdf
-│
 └── README.md
 ```
 
-## ER Diagram
+`Documentaion/` keeps the original upstream directory name for compatibility with the existing project history.
 
-<p align="center">
-  <img src="Diagrams/er-diagram.png" width="750" alt="ICMS ER Diagram"/>
-</p>
+## Running the database exercises
 
+Use **Oracle Database** with a tool such as Oracle SQL Developer. For PL/SQL output, enable:
 
-## Schema Diagram
-
-<p align="center">
-  <img src="Diagrams/Schema-diagram.png" width="750" alt="ICMS Schema Diagram"/>
-</p>
-
-
-## System Interfaces
-
-### Organizer Dashboard
-
-<p align="center">
-  <img src="Screenshots of UI/organizer-dashboard.png" width="800" alt="Organizer Dashboard"/>
-</p>
-
-
-The organizer can manage challenges, rounds, teams, judges, mentors, sponsors, prizes, and competition progress.
-
-### Participant Dashboard
-
-<p align="center">
-  <img src="Screenshots of UI/participant-dashboard.png" width="800" alt="Participant Dashboard"/>
-</p>
-
-
-Participants can register for challenges, manage their teams, and submit projects.
-
-### Judge Dashboard
-
-<p align="center">
-  <img src="Screenshots of UI/judge-dashboard.png" width="800" alt="Judge Dashboard"/>
-</p>
-
-
-Judges can view assigned submissions and provide scores and comments.
-
-### Mentor Dashboard
-
-<p align="center">
-  <img src="Screenshots of UI/mentor-dashboard.png" width="800" alt="Mentor Dashboard"/>
-</p>
-
-
-Mentors can manage assigned teams and record mentorship sessions.
-
-## Key Database Relationships
-
-- A challenge can contain multiple rounds.
-- Teams register for challenges.
-- Participants can belong to teams.
-- Teams can submit projects for different rounds.
-- Submissions can have multiple tags.
-- Rounds define evaluation criteria.
-- Judges evaluate submissions according to criteria.
-- Mentors conduct mentorship sessions with teams.
-- Sponsors fund prizes.
-- Prizes are awarded to winning teams.
-
-## Running the Database
-
-Execute the SQL files in the following order:
-
-```text
-1. schema.sql
-2. sequences.sql
-3. sample_data.sql
-4. plsql_basic.sql
-5. plsql_advanced.sql
-6. locking_queries.sql
+```sql
+SET SERVEROUTPUT ON;
 ```
 
-The database implementation was developed for **Oracle Database** using Oracle SQL and PL/SQL.
+Start from a fresh schema and run the setup files in this order:
 
-## Academic Context
+```text
+1. Database/schema.sql
+2. Database/sequences.sql
+3. Database/sample_data.sql
+```
+
+Then use the exercise files as needed:
+
+```text
+4. Database/plsql_basic.sql
+5. Database/plsql_advanced.sql
+6. Database/locking_queries.sql
+```
+
+### Execution notes
+
+- `plsql_basic.sql` and `plsql_advanced.sql` contain multiple independent coursework exercises and test statements. They are best executed **section by section** in an Oracle worksheet rather than treated as a production migration script.
+- `locking_queries.sql` intentionally includes `UPDATE`, `DELETE`, row-locking, and table-locking examples. Run it only against disposable/sample data.
+- `sample_data.sql` assumes a freshly created schema/sequences with the expected starting IDs. Re-running setup scripts without resetting the schema may produce constraint conflicts.
+- No automated test suite, teardown script, or production deployment configuration is included.
+
+## Diagrams
+
+### ER diagram
+
+<p align="center">
+  <img src="Diagrams/er-diagram.png" width="750" alt="ICMS ER diagram" />
+</p>
+
+### Schema diagram
+
+<p align="center">
+  <img src="Diagrams/Schema-diagram.png" width="750" alt="ICMS schema diagram" />
+</p>
+
+## UI artifacts
+
+The repository includes screenshots for login/registration and organizer, participant, judge, and mentor dashboards. These illustrate the intended workflows, but the corresponding frontend source is not part of the current public repository.
+
+## Academic context and attribution
 
 Developed as a group project for the **Advanced Database Management System** course at **American International University-Bangladesh (AIUB)**.
 
-## Team Members
+| Team member | GitHub |
+|---|---|
+| Tasfiah Tasnim Mrinmoyee | [tasfiahmrinmoyee](https://github.com/tasfiahmrinmoyee) |
+| Samiha Chowdhury | [Samiha-Chowdhury-9](https://github.com/Samiha-Chowdhury-9) |
+| MD Alif Ziad Sarkar | [Alif-ziad](https://github.com/Alif-ziad) |
+| MD Tanvirul Islam Nayem | — |
 
-| Member                   | GitHub                                                  |
-| ------------------------ | ------------------------------------------------------- |
-| Tasfiah Tasnim Mrinmoyee | [GitHub Profile](https://github.com/tasfiahmrinmoyee)   |
-| Samiha Chowdhury         | [GitHub Profile](https://github.com/Samiha-Chowdhury-9) |
-| MD Alif Ziad Sarkar      | [GitHub Profile](https://github.com/Alif-ziad)          |
-| MD Tanvirul Islam Nayem  |                                                         |
+No individual contribution percentages or roles are assigned here because the repository does not document them.
+
+## Fork note
+
+This fork is maintained under **Alif-ziad** for portfolio/reference purposes. Original group-project history and upstream attribution remain visible through GitHub's fork relationship. Documentation and repository-hygiene changes made in this fork should not be interpreted as sole authorship of the underlying academic project.

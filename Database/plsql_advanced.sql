@@ -1,3 +1,4 @@
+-- Coursework PL/SQL exercises for ICMS. Execute the sections individually in an Oracle worksheet.
 
 --Question 17: Create a stored function named days_left that accepts a challenge ID and returns the number of days between the current date and the challenge end date.
 CREATE OR REPLACE FUNCTION days_left
@@ -296,7 +297,7 @@ EXCEPTION
         DBMS_OUTPUT.PUT_LINE('Question 23 error: ' || SQLERRM);
 END; 
 
-Question 24: Use an explicit cursor to display all stored submissions with their IDs, titles, and statuses.
+--Question 24: Use an explicit cursor to display all stored submissions with their IDs, titles, and statuses.
 DECLARE
     CURSOR c_submissions IS
         SELECT submission_id, title, status
@@ -928,8 +929,8 @@ BEGIN
 END; 
 
 -- Question 32: Write a package named challenge_stats_pkg containing two procedures and two functions:
--- •	Procedures: open_challenge and close_challenge
--- •	Functions: get_challenge_status and get_team_countWrite a package named challenge_stats_pkg that contains:
+-- Procedures: open_challenge and close_challenge
+-- Functions: get_challenge_status and get_team_count
 
 CREATE OR REPLACE PACKAGE challenge_stats_pkg AS
 
@@ -1060,11 +1061,11 @@ BEGIN
     v_teams := challenge_stats_pkg.get_team_count(999);
 
     DBMS_OUTPUT.PUT_LINE(
-        'Challenge 1 Status: ' || v_status
+        'Challenge 999 Status: ' || v_status
     );
 
     DBMS_OUTPUT.PUT_LINE(
-        'Challenge 1 Team Count: ' || v_teams
+        'Challenge 999 Team Count: ' || v_teams
     );
 END;
 
